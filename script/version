@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_chef_server="0.0.1"
+  jq -n --arg chef_server "$ver_chef_server" '{chef_server: $chef_server}'
+}
+
+version "$@"
